@@ -1,3 +1,5 @@
+const { DataTypes } = require("sequelize");
+
 module.exports = (sequelize, Sequelize) => {
     const Phone = sequelize.define("phone", {
         id: {
@@ -5,7 +7,12 @@ module.exports = (sequelize, Sequelize) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        // DEFINE YOUR MODEL HERE
+        name:{
+            type: DataTypes.STRING,
+        },
+        number:{
+            type: DataTypes.STRING,
+        },
     });
   
     return Phone;

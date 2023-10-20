@@ -20,7 +20,11 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 /* Create database tables and models */
+//https://www.bezkoder.com/sequelize-associate-one-to-many/
 db.contacts = require("./contact.model.js")(sequelize, Sequelize);
 db.phones = require("./phone.model.js")(sequelize, Sequelize);
+
+db.contacts.hasMany(db.phones);
+db.phones.belongsTo(db.contacts);
 
 module.exports = db;
